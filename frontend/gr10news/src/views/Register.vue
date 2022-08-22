@@ -1,14 +1,38 @@
 <template>
     <div class="register">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <form v-on:submit.prevent="register">
-        <input type="text" placeholder="Ingrese Nombre" v-model="user.username">
-        <input type="text" placeholder="Ingrese Email" v-model="user.email">
-        <input type="password" placeholder="Ingrese contraseña" v-model="user.password">
+    <form v-on:submit.prevent="register" class="register">
+        <input type="text" placeholder="Ingrese Nombre" v-model="user.username" class="input">
+        <br>
+        <br>
+        <input type="text" placeholder="Ingrese Email" v-model="user.email" class="input">
+        <br>
+        <br>
+        <input type="password" placeholder="Ingrese contraseña" v-model="user.password" class="input">
+        <br>
+        <br>
         <button type="submit">Registrar</button>
     </form>
   </div>
 </template>
+<style>
+   .register{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: medium;
+    background-color: antiquewhite;
+   }
+   .input{
+    height: 30px;
+   }
+</style>
 <script>
 // import { mapActions } from 'vuex'
 export default {
