@@ -34,8 +34,6 @@ public class Notice {
     @NotBlank
     private String author ;
 
-    @NotBlank
-    private Date date ;
 
     @NotBlank
     private String image ;
