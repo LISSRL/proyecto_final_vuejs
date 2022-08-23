@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class Field
 {
+    public static final String ID = "ID";
     public static final String EMAIL = "email";
     public static final String USERNAME = "username";
     public static final String AUTHORIZATION = "Authorization";

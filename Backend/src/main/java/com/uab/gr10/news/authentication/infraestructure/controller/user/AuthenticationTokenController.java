@@ -28,7 +28,7 @@ import javax.servlet.http.HttpSession;
 import static org.springframework.security.web.context.HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY;
 
 @RestController
-@CrossOrigin(origins = "${react.origin.url}")
+@CrossOrigin(origins = "${vue.origin.url}")
 public class AuthenticationTokenController
 {
 

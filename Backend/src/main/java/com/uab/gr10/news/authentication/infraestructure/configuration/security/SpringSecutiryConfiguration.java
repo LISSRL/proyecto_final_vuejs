@@ -98,7 +98,7 @@ public class SpringSecutiryConfiguration
     public CorsConfigurationSource corsConfigurationSource()
     {
         final CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(ImmutableList.of(env.getProperty("react.origin.url")));
+        configuration.setAllowedOrigins(ImmutableList.of(env.getProperty("vue.origin.url")));
         configuration.setAllowedMethods(ImmutableList.of(
             "HEAD",
             "GET",

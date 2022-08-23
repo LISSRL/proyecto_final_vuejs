@@ -39,7 +39,8 @@ public class UserFactory implements Factory<User, UserDTO>
             userId,
             userDTO.getUsername(),
             userDTO.getEmail(),
-            bcryptEncoder.encode(userDTO.getPassword())
+            bcryptEncoder.encode(userDTO.getPassword()),
+            true
         );
     }
 
