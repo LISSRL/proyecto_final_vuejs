@@ -48,7 +48,6 @@ public class NoticeController {
 
     @PostMapping(value = "/files")
     public ResponseEntity<Iterable<Notice>> saveNotices(@RequestParam("files") MultipartFile files) {
-        // return ResponseEntity.ok(noticeService.saveNotices(files));
         return ResponseEntity.ok(Collections.emptyList());
     }
 

@@ -40,4 +40,10 @@ public class CategoryService {
         return categoryRepository.findById(id);
     }
 
+    public Optional<Category> deleteCategoryById(UUID id) {
+        final Optional<Category> category = getCategoryById(id);
+        categoryRepository.deleteById(id);
+        return category;
+    }
+
 }

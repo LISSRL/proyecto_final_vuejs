@@ -39,4 +39,10 @@ public class CategoryController {
         @PathVariable(value = "id") UUID id) {
         return ResponseEntity.ok(categoryService.update(id, category));
     }
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Notice> deleteById(@PathVariable(value = "id") UUID id) {
+        return categoryService.deleteCategoryById(id)
+            .map(ResponseEntity::ok)
+            .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 }
