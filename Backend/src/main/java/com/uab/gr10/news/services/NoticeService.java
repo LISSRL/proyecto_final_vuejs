@@ -11,73 +11,12 @@ import java.util.UUID;
 @Service
 public class NoticeService {
 
+    private final NoticeRepository noticeRepository;
 
-    private NoticeRepository noticeRepository = new NoticeRepository() {
-        @Override
-        public Notice findDistinctByName(String name) {
-            return null;
-        }
-
-        @Override
-        public <S extends Notice> S save(S entity) {
-            return null;
-        }
-
-        @Override
-        public <S extends Notice> Iterable<S> saveAll(Iterable<S> entities) {
-            return null;
-        }
-
-        @Override
-        public Optional<Notice> findById(UUID uuid) {
-            return Optional.empty();
-        }
-
-        @Override
-        public boolean existsById(UUID uuid) {
-            return false;
-        }
-
-        @Override
-        public Iterable<Notice> findAll() {
-            return null;
-        }
-
-        @Override
-        public Iterable<Notice> findAllById(Iterable<UUID> uuids) {
-            return null;
-        }
-
-        @Override
-        public long count() {
-            return 0;
-        }
-
-        @Override
-        public void deleteById(UUID uuid) {
-
-        }
-
-        @Override
-        public void delete(Notice entity) {
-
-        }
-
-        @Override
-        public void deleteAllById(Iterable<? extends UUID> uuids) {
-
-        }
-
-        @Override
-        public void deleteAll(Iterable<? extends Notice> entities) {
-
-        }
-
-        @Override
-        public void deleteAll() {
-
-        }
-    } ;
+    @Autowired
+    public NoticeService(final NoticeRepository noticeRepository){
+        this.noticeRepository = noticeRepository;
+    }
 
     public Iterable<Notice> getNotices() {
         return noticeRepository.findAll();

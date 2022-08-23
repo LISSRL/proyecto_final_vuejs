@@ -15,6 +15,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "notice")
 public class Notice {
 
     @Id
@@ -37,6 +38,9 @@ public class Notice {
 
     @NotBlank
     private String image ;
+
+    @NotBlank
+    private Date publishingDate;
 
     @ManyToOne
     @JoinColumn(name = "category_id")

@@ -2,7 +2,7 @@ package com.uab.gr10.news.controllers;
 
 import com.uab.gr10.news.models.Notice;
 import com.uab.gr10.news.services.NoticeService;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,12 +12,14 @@ import javax.validation.Valid;
 import java.util.Collections;
 import java.util.UUID;
 
-@AllArgsConstructor
 @RestController
 @RequestMapping("api/notices")
 public class NoticeController {
-
     private final NoticeService noticeService;
+    @Autowired
+    public NoticeController(final NoticeService noticeService){
+        this.noticeService = noticeService;
+    }
 
     @GetMapping
     public ResponseEntity<Iterable<Notice>> findAll() {
