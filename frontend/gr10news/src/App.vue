@@ -1,18 +1,26 @@
 <template>
   <div id="app">
-    <div class="navigation">
-      <div id="nav">
-        <router-link to="/dashboard">Dashboard</router-link>
-        <router-link to="/cateories">Categorias</router-link>
-      </div>
-      <div class="login-register">
-          <router-link to="/">Login</router-link> |
-              <router-link to="/register">Register</router-link>
-              <button type="button" @click="logout" class="button">
-                  Logout
-               </button> 
+    <div class="navigation" style="background-color:rgb(3, 19, 123); box-shadow: 5px 0px 10px; ">
+    <div>
+        <img class="Liss..." title="Liseth Rojas" src='https://wpexpand.com/demo/html/kotha-pro/assets/images/me.jpg' width="60px" style="border-radius: 50%; border: 3px solid #fff;"  target="_blank"/>
+        <div class="login-register">
+         <!--  <div class="col-md-8" style="margin:15px; color: #fff; font-family:Arial, Helvetica, sans-serif;"><label class="login" id="login"></label>
+          </div>   -->
+          <router-link to="/">LOGIN</router-link>
+          <button type="button" @click="logout" class="button pull-right" style="float: right;">LOGOUT</button> 
         </div>
     </div>
+    
+      
+    </div> 
+    <div id="nav">
+        <router-link to="/dashboard">INICIO</router-link>
+        <router-link to="/cateory">CATEGORIAS</router-link>
+        <router-link to="/notice">NOTICIAS</router-link>
+        <router-link to="/register">USUARIOS</router-link>
+    </div>
+    <hr>
+      
     <router-view/>
 
 </div>

@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Dashboard from '../views/Dashboard.vue'
 import store from '../store'
 import Register from '../views/Register.vue'
+/* import Register from '../views/Category.vue'
+import Register from '../views/Notice.vue' */
 
 Vue.use(VueRouter)
 
@@ -23,7 +25,17 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: Register
-  }
+  },
+/*  {
+    path: '/category',
+    name: 'Category',
+    component: Category
+  },
+  {
+    path: '/notice',
+    name: 'Notice',
+    component: Notice
+  }  */
 ]
 
 const router = new VueRouter({
