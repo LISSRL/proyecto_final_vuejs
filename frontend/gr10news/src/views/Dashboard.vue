@@ -3,42 +3,12 @@
     <h1>Ruta protegida</h1>
     <p>{{user}}</p>
     <div class="news">
-          <div class="card">
-            <h1 class="title">Title</h1>
+          <div class="card" v-for="notice in notices" :key="notice.id">
+            <h1 class="title">{{ notice.title}}</h1>
             <p class="content">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-              when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-               It has survived not only five centuries, but also the leap into electronic typesetting, 
-               remaining essentially unchanged. It was popularised in the 1960s with the release 
-               of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software 
-               like Aldus PageMaker including versions of Lorem Ipsum.
+                 {{notice.content}}
             </p>
           </div> 
-          <div class="card">
-            <h1 class="title">Title2</h1>
-            <p class="content">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-              when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-               It has survived not only five centuries, but also the leap into electronic typesetting, 
-               remaining essentially unchanged. It was popularised in the 1960s with the release 
-               of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software 
-               like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-          </div> 
-          <div class="card">
-            <h1 class="title">Title3</h1>
-            <p class="content">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-              when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-               It has survived not only five centuries, but also the leap into electronic typesetting, 
-               remaining essentially unchanged. It was popularised in the 1960s with the release 
-               of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software 
-               like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-          </div>  
     </div>>
   </div>
 </template>
@@ -62,6 +32,30 @@
 import {mapState, mapActions} from 'vuex'
 import App from '@/App.vue';
 export default {
+    name:"Dashboard",
+    data(){
+        return {
+            notices:null,
+            pagina:1
+        }
+    },
+    mounted: async function(){
+       // let direccion = "http://solodata.es/pacientes?page=" + this.pagina;
+       // axios.get(direccion).then( data =>{
+       //     this.Listapacientes = data.data;
+       // });
+        const response = await fetch("http://localhost:8764/api/notices", {
+                method: 'GET',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                },
+                });
+                response.json().then(data => {
+                  this.notices = data;
+                  console.log(data);
+                });
+    },
     created() {
         this.dashboard(this.token);
     },

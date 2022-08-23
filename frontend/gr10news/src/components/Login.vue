@@ -56,9 +56,9 @@ export default {
                 },
                 body:JSON.stringify(this.user)
                 });
-
                 response.json().then(data => {
                   console.log(data);
+                  this.$router.push('dashboard');
                 });
             }
   }
