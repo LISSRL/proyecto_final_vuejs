@@ -1,5 +1,6 @@
 package com.uab.gr10.news.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import org.hibernate.annotations.Type;
 
@@ -30,20 +31,19 @@ public class Notice {
     private String subtitle ;
 
     @NotBlank
+    @Column(columnDefinition="TEXT")
     private String content ;
 
     @NotBlank
     private String author ;
 
-
-    @NotBlank
     private String image ;
 
-    @NotBlank
-    private Date publishingDate;
+    private Date publishingDate= new Date();
 
     @ManyToOne
     @JoinColumn(name = "category_id")
+    @JsonBackReference
     private Category category;
 
 }

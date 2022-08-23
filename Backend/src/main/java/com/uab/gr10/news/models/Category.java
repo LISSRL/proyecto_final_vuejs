@@ -1,6 +1,9 @@
 package com.uab.gr10.news.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import java.util.List;
 import lombok.*;
+import org.aspectj.weaver.ast.Not;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -26,10 +29,10 @@ public class Category {
     @NotBlank
     private String description ;
 
+    @OneToMany(mappedBy = "category")
+    @JsonManagedReference
+    private List<Notice> notices;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
 
 
 }

@@ -14,6 +14,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("api/notices")
+@CrossOrigin(origins = "${vue.origin.url}")
 public class NoticeController {
     private final NoticeService noticeService;
     @Autowired
@@ -53,8 +54,6 @@ public class NoticeController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Notice> updateNotice(@RequestBody Notice notice, @PathVariable(value = "id") UUID id) {
-        return noticeService.getNoticeById(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        return ResponseEntity.ok(noticeService.update(id,notice));
     }
 }

@@ -30,6 +30,21 @@ public class NoticeService {
         return noticeRepository.save(notice);
     }
 
+    public Notice update(UUID id, Notice notice) {
+        if (noticeRepository.existsById(id)) {
+            Notice noticeFound = noticeRepository.findById(id).get();
+                noticeFound.setTitle(notice.getTitle());
+                noticeFound.setContent(notice.getContent());
+                noticeFound.setAuthor(notice.getAuthor());
+                noticeFound.setSubtitle(notice.getSubtitle());
+                noticeFound.setCategory(notice.getCategory());
+                return noticeRepository.save(noticeFound);
+        }
+        else{
+            return null;
+        }
+    }
+
     public Optional<Notice> deleteNoticeById(UUID id) {
         final Optional<Notice> notice = getNoticeById(id);
         noticeRepository.deleteById(id);
