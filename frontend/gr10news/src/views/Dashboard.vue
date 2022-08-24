@@ -1,7 +1,5 @@
 <template>
   <div class="dashboard">
-    <h1>Ruta protegida</h1>
-    <p>{{user}}</p>
     <div class="news">
           <div class="card" v-for="notice in notices" :key="notice.id">
             <h1 class="title">{{ notice.title}}</h1>

@@ -15,8 +15,8 @@
     </div> 
     <div id="nav">
         <router-link to="/dashboard">INICIO</router-link>
-        <router-link to="/category">CATEGORIAS</router-link>
-        <router-link to="/notice">NOTICIAS</router-link>
+        <router-link to="/all-categories">CATEGORIAS</router-link>
+        <router-link to="/all-notices">NOTICIAS</router-link>
         <router-link to="/register">USUARIOS</router-link>
     </div>
     <hr>

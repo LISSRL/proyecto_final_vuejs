@@ -40,11 +40,11 @@ export default {
       user: {
         usernameOrEmail: '',
         password: ''
-      }
+      },
+      token:'',
     }
   },
   methods: {
-    // ...mapActions(['login'])
     login: async function()
             {
                 console.log(JSON.stringify(this.user))
@@ -59,6 +59,10 @@ export default {
                 response.json().then(data => {
                   console.log(data);
                   this.$router.push('dashboard');
+                  this.token = data.token;
+                  console.log(this.token)
+                }).catch(error =>{
+                  alert("invalid credentials")
                 });
             }
   }

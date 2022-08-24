@@ -5,7 +5,10 @@ import Dashboard from '../views/Dashboard.vue'
 import store from '../store'
 import Register from '../views/Register.vue'
 import Category from '../views/Category.vue'
+import AllCategories from '../views/AllCategories.vue'
 import Notice from '../views/Notice.vue'
+import EditCategory from '../views/EditCategory.vue'
+import AllNotices from '../views/AllNotices.vue'
 
 Vue.use(VueRouter)
 
@@ -30,6 +33,21 @@ const routes = [
     path: '/category',
     name: 'Category',
     component: Category
+  },
+  {
+    path: '/all-categories',
+    name: 'AllCategories',
+    component: AllCategories
+  },
+  {
+    path: '/all-notices',
+    name: 'AllNotices',
+    component: AllNotices
+  },
+  {
+    path: '/edit_category',
+    name: 'EditCategory',
+    component: EditCategory
   },
   {
     path: '/notice',
