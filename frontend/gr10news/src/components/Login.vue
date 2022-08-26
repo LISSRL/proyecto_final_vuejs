@@ -32,7 +32,6 @@
    }
 </style>
 <script>
-// import { mapActions } from 'vuex'
 export default {
   name: 'Login',
   data() {
@@ -56,11 +55,10 @@ export default {
                 },
                 body:JSON.stringify(this.user)
                 });
-                response.json().then(data => {
-                  console.log(data);
+                response.json().then(data => {          
+                  sessionStorage.setItem('token', data.token);
                   this.$router.push('dashboard');
                   this.token = data.token;
-                  console.log(this.token)
                 }).catch(error =>{
                   alert("invalid credentials")
                 });

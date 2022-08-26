@@ -8,7 +8,7 @@
             <input type="text" name="search" v-model="noticeSearch" placeholder="Search notices" class="form-control" v-on:keyup="searchNotices">
         </div>
         <label>Categoria:</label>
-        <select class="categoryselect" v-on:change="getValue($event)" >
+        <select class="categoryselect" v-on:change="getByCategory($event)" >
         <option v-for="category in categories" :key="category.id" v-bind:value="category.id">{{category.name}}</option>
         </select>
         <table class="table table-hover">
@@ -86,7 +86,7 @@
                 }
                 this.notices = searchedNotices;
             },
-                getValue: async function(event){
+                getByCategory: async function(event){
                 console.log(event.target.value)
                 const response = await fetch("http://localhost:8764/api/categories/"+event.target.value, {
                 method: 'GET',

@@ -40,17 +40,15 @@ export default {
     data() {
         return {
             user:  {
-                username: 'flavio',
+                username: '',
                 email: '',
                 password: '',
             }
         }
     },
       methods: {
-       // ...mapActions(['register']),
          register: async function()
             {
-                console.log(JSON.stringify(this.user))
                 const response = await fetch("http://localhost:8764/user/signup", {
                 method: 'POST',
                 headers: {
@@ -61,6 +59,7 @@ export default {
                 });
 
                 response.json().then(data => {
+                  this.$router.push('dashboard');
                   console.log(data);
                 });
             }      

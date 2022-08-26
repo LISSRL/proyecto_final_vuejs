@@ -26,10 +26,13 @@
 </div>
 </template>
 <script>
-import { mapActions } from 'vuex'
 export default {
   methods: {
-    ...mapActions(['getToken', 'logout']),
+        logout: function()
+            {
+              sessionStorage.clear();
+              this.$router.push('dashboard');
+            },
   },
   created(){
     this.getToken()

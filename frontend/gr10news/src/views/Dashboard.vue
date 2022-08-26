@@ -13,14 +13,15 @@
 <style>
    .news{
     display: flex;
-    flex-direction: column;
-    width: 60%;
+    flex-direction: row;
+    width: 80%;
    }
    .card{
-    width: 100%;
+    width: 300px;
     font-family: 'Courier New', Courier, monospace;
     padding: 5px;
     margin: 10px;
+    background-color: aliceblue;
    }
    .dashboard{
     margin-top: 10px;
