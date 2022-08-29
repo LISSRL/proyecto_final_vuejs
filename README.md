@@ -7,9 +7,10 @@ Integrantes
 
 Backend.
 Prerequisitos.
- JDK java 11 o grater
- PostgressSql suggestion 14.0.1 o grater
-Steps
+* JDK java 11 o mayor
+* PostgressSql Sugerencia 14.0.1 o mayor, puedes utilizar otro gestor de base de datos para ello debes configurar el archivo aplication.properties
+
+Pasos Para Ejecutar la aplicacion
 
 1 Open with a IDE the backend file (Suggestion IntelliJ)
 2 Change postgress datas in application.properties
@@ -17,7 +18,7 @@ Steps
 4 doloand gradle dependencies
 5 Run
 
-Frontend
+*Frontend
 prerequisites
 Vuejs 2.0
 nodejs
