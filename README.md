@@ -12,18 +12,20 @@ Prerequisitos.
 
 Pasos Para Ejecutar la aplicacion
 
-1 Open with a IDE the backend file (Suggestion IntelliJ)
-2 Change postgress datas in application.properties
-3 Create a database wiht name news
-4 doloand gradle dependencies
-5 Run
+* Abrir con un IDE el archivo de Backend (Sugerencia IntelliJ)
+* Cambiar los datos de usuario y password en application.properties
+* Crear una base de datos news
+* se descargara automaticamente las dependencias de gradle
+* Ejecutar NewsApplication
 
 *Frontend
-prerequisites
-Vuejs 2.0
-nodejs
-Steps
-1. open the frontend/gr10 file with a editor, (suggestion visual studio)
-2. npm install
-3. npm run serve 
+Prerequisitos
+* Vuejs 2.0
+* nodejs
+
+Pasos para ejecutar la aplicacion
+* abrir el archivo frontend/gr10 con un editor, (sugerencia visual studio)
+* abrir la terminal ejecutar los siguientes comandos
+* npm install
+* npm run serve 
 
