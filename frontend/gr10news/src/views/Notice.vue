@@ -23,6 +23,9 @@
     </select>
         <br>
         <br>
+        <label>Imagen:</label>
+        <input type="file" v-on:change="onFile($event)" accept="image/*" />
+        <img :src="imgSrc" v-if="imgSrc" />
         <button type="submit">Registrar</button>
     </form>
   </div>
@@ -40,7 +43,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: medium;
-    background-color: antiquewhite;
+    background-color: #8ab5976b;
    }
    .input{
     height: 30px;
@@ -58,7 +61,8 @@ export default {
                 title: '',
                 subtitle: '',
                 password: '',
-                category:{}
+                category:{},
+                imgSrc: ''
             },
             categories:[]
         }
@@ -84,7 +88,18 @@ export default {
       console.log(event.target.value)
           this.notice.category.id = event.target.value
           console.log(JSON.stringify(this.notice))
-         }       
+         },
+         onFile: async function(e) {
+            console.log(e);
+            const files = e.target.files
+            if (!files.length) return
+            const reader = new FileReader()
+            reader.readAsDataURL(files[0])
+           
+            reader.onload = (event) => {this.imgSrc = files[0].name;console.log(files[0].name,'name'); console.log(event.target.result,"sss")}
+            console.log(reader.readAsDataURL(files[0]),'ss')
+            console.log("file",this.imgSrc)
+          }       
     },
     mounted: async function(){
         const response = await fetch("http://localhost:8764/api/categories", {

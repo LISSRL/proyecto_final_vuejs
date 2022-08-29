@@ -1,24 +1,22 @@
 <template>
   <div id="app">
-    <div class="navigation" style="background-color:rgb(3, 19, 123); box-shadow: 5px 0px 10px; ">
-    <div>
-        <img class="Liss..." title="Liseth Rojas" src='https://wpexpand.com/demo/html/kotha-pro/assets/images/me.jpg' width="60px" style="border-radius: 50%; border: 3px solid #fff;"  target="_blank"/>
-        <div class="login-register">
-         <!--  <div class="col-md-8" style="margin:15px; color: #fff; font-family:Arial, Helvetica, sans-serif;"><label class="login" id="login"></label>
-          </div>   -->
-          <router-link to="/">LOGIN</router-link>
-          <button type="button" @click="logout" class="button pull-right" style="float: right;">LOGOUT</button> 
-        </div>
-    </div>
-    
-      
-    </div> 
-    <div id="nav">
+    <div class="navigation">
+      <div id="nav">
         <router-link to="/dashboard">INICIO</router-link>
-        <router-link to="/all-categories">CATEGORIAS</router-link>
-        <router-link to="/all-notices">NOTICIAS</router-link>
-        <router-link to="/register">USUARIOS</router-link>
+        <router-link to="/all-categories" v-show="verifyToken()">CATEGORIAS</router-link>
+        <router-link to="/all-notices"  v-show="verifyToken()">NOTICIAS</router-link>
+        <router-link to="/register" v-show="!verifyToken()">REGISTRAR</router-link>
+        <router-link to="/register" v-show="verifyToken()">USUARIOS</router-link>
     </div>
+      <div>
+        <img class="Liss..." title="Liseth Rojas" src='https://wpexpand.com/demo/html/kotha-pro/assets/images/me.jpg' width="60px" style="border-radius: 50%; border: 3px solid #fff;"  target="_blank"/>
+        <div class="login-register">  
+          <router-link to="/" ><button type="button" @click="logout" v-show="!verifyToken()" class="button pull-right" style="float: right;">LOGIN</button></router-link>
+          <button type="button" @click="logout" v-show="verifyToken()" class="button pull-right" style="float: right;">LOGOUT</button> 
+        </div>
+    </div>      
+    </div> 
+
     <hr>
       
     <router-view/>
@@ -31,8 +29,12 @@ export default {
         logout: function()
             {
               sessionStorage.clear();
-              this.$router.push('dashboard');
+              this.$router.push('/');
             },
+        verifyToken: function()
+        {
+          return sessionStorage.getItem('token');
+        }
   },
   created(){
     this.getToken()
@@ -73,6 +75,8 @@ export default {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  background-color:#72aa8316; 
+  box-shadow: 5px 0px 10px; 
 }
 </style>
 

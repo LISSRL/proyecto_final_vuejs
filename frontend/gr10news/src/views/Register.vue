@@ -10,28 +10,59 @@
         <input type="password" placeholder="Ingrese contraseña" v-model="user.password" class="input">
         <br>
         <br>
-        <button type="submit">Registrar</button>
+        <button type="submit" class="button-register">Registrar</button>
     </form>
   </div>
 </template>
 <style>
-   .register{
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    justify-content: center;
-    align-self: center;
-    align-content: center;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: medium;
-    background-color: antiquewhite;
-   }
+
    .input{
     height: 30px;
    }
+   .register{
+    border: 3px solid #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding: 20px;
+    font-size:large;
+    background-color:#8ab59794;
+   }
+   .imagen-login{
+    align-self: center;
+   }
+   .input{
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  min-height: 50px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size:large;
+   }
+   .button-register {
+  background-color:rgb(15, 155, 108);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  
+}
+button:hover {
+  opacity: 0.8;
+}
 </style>
 <script>
 // import { mapActions } from 'vuex'

@@ -1,0 +1,1 @@
+export const RUTA_SERVIDOR = process.env.VUE_APP_BACKEND_PROTOCOL+'://'+process.env.VUE_APP_BACKEND_HOST+':'+process.env.VUE_APP_BACKEND_PORT;

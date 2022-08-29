@@ -1,19 +1,23 @@
 <template>
   <div class="home">
+     
   <form v-on:submit.prevent="login" class="login">
-        <input type="text" placeholder="Ingrese Email" v-model="user.usernameOrEmail" class="input">
+       <img class="imagen-login" src='../assets/login-icon.jpg' width="300px" style="border-radius: 50%; border: 3px solid #fff;"  target="_blank"/>
+   
+        <input type="text" placeholder="Ingrese nombre de usuario o email" v-model="user.usernameOrEmail" class="input">
         <br>
         <input type="password" placeholder="Ingrese contraseña" v-model="user.password" class="input">
         <br>
-        <button type="submit">Acceder</button>
+        <button type="submit" class="button-register">Acceder</button>
     </form>
   </div>
 </template>
 <style>
    .login{
+    border: 3px solid #f1f1f1;
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 50%;
     justify-content: center;
     align-self: center;
     align-content: center;
@@ -24,14 +28,39 @@
     padding-top: 20px;
     padding-bottom: 20px;
     padding: 20px;
-    font-size: medium;
-    background-color: antiquewhite;
+    font-size:large;
+    background-color:#8ab59794;
+   }
+   .imagen-login{
+    align-self: center;
    }
    .input{
-    height: 30px;
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  min-height: 50px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size:large;
    }
+   .button-register {
+  background-color:rgb(15, 155, 108);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  
+}
+button:hover {
+  opacity: 0.8;
+}
+   
 </style>
 <script>
+import { RUTA_SERVIDOR } from '@/config';
 export default {
   name: 'Login',
   data() {
@@ -47,7 +76,7 @@ export default {
     login: async function()
             {
                 console.log(JSON.stringify(this.user))
-                const response = await fetch("http://localhost:8764/login", {
+                const response = await fetch(RUTA_SERVIDOR+"/login", {
                 method: 'POST',
                 headers: {
                   'Accept': 'application/json',

@@ -1,5 +1,5 @@
 <template>
-    <div class="register">
+    <div class="">
     <form v-on:submit.prevent="register" class="register">
          <label>Nombre:</label>
         <input type="text" placeholder="Ingrese Nombre" v-model="category.name" class="input">
@@ -9,7 +9,7 @@
         <input type="text" placeholder="Ingrese Descripcion" v-model="category.description" class="input">
         <br>
         <br>
-        <button type="submit">Registrar</button>
+        <button type="submit" class="btn-registrar">Registrar</button>
     </form>
   </div>
 </template>
@@ -17,19 +17,26 @@
    .register{
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 50%;
     justify-content: center;
     align-self: center;
     align-content: center;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 25%;
+    margin-right: 25%;
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: medium;
-    background-color: antiquewhite;
+    background-color: #8ab59794;
    }
    .input{
     height: 30px;
+   }
+   .btn-registrar{
+    background-color: green;
+    width: 60%;
+    align-self: center;
+    height: 40px;
+    border-radius: 10%;
    }
 </style>
 <script>
@@ -57,6 +64,7 @@ export default {
                 });
 
                 response.json().then(data => {
+                  this.$router.push('/all-categories');
                   console.log(data);
                 });
             }      
