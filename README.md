@@ -29,3 +29,16 @@ Pasos para ejecutar la aplicacion
 * npm install
 * npm run serve 
 
+El servicio de authentication del backend esta realizado con una arquitectura hexagonal (DDD pattern)
+Se tienen los siguientes modelos
+* User
+* Account
+
+El servicio de noticias del backend esta realizado con una arquitectura MCS
+Se tienen los siguientes modelos
+* New
+* Category
+las relaciones y generacion de los campos en la base de datos es manejado automaticamente mediante Hibernate 
+
+El frontend esta desarrollado mediante Vuejs
+![image](https://user-images.githubusercontent.com/51680932/187286569-58af2dc0-63ca-4705-8456-60a1cc0222a3.png)
